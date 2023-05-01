@@ -1,0 +1,78 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="301pt" height="130pt" viewBox="0.00 0.00 300.75 130.00">
+<g id="graph0" class="graph" transform="translate(4,126) scale(1)" data-name="Automata">
+
+<polygon fill="white" stroke="none" points="-4,4 -4,-126 296.75,-126 296.75,4 -4,4"/>
+<!-- 0 -->
+<g id="node1" class="node" pointer-events="visible" data-name="0">
+
+<g id="a_node1"><a xlink:href="0" xlink:title="0">
+<polygon fill="white" stroke="black" points="161.34,-92.54 161.34,-107.46 145.52,-118 123.16,-118 107.34,-107.46 107.34,-92.54 123.16,-82 145.52,-82 161.34,-92.54"/>
+<polygon fill="none" stroke="black" points="165.34,-90.4 165.34,-109.6 146.73,-122 121.94,-122 103.34,-109.6 103.34,-90.4 121.94,-78 146.73,-78 165.34,-90.4"/>
+<text text-anchor="middle" x="134.34" y="-95.8" font-family="Times,serif" font-size="14.00">0</text>
+</a>
+</g>
+</g>
+<!-- 1 -->
+<g id="node2" class="node" pointer-events="visible" data-name="1">
+
+<g id="a_node2"><a xlink:href="1" xlink:title="1">
+<ellipse fill="white" stroke="black" cx="134.34" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="134.34" y="-13.8" font-family="Times,serif" font-size="14.00">1</text>
+</a>
+</g>
+</g>
+<!-- 0&#45;&gt;1 -->
+<g id="edge1" class="edge" data-name="0-&gt;1">
+
+<g id="a_edge1"><a xlink:href="t0" xlink:title="BUTTON_A / b'LIGHT IS ON'">
+<path fill="none" stroke="black" d="M102.86,-98.52C56.8,-96.67 -20.79,-88.52 5.6,-54 16.69,-39.49 62.96,-29.58 96.86,-24.1"/>
+<polygon fill="black" stroke="black" points="96.97,-27.63 106.32,-22.65 95.91,-20.71 96.97,-27.63"/>
+</a>
+</g>
+<g id="a_edge1-label"><a xlink:href="t0" xlink:title="BUTTON_A / b'LIGHT IS ON'">
+<text text-anchor="middle" x="38.21" y="-55.5" font-family="Times,serif" font-size="5.00">BUTTON_A / b'LIGHT IS ON'</text>
+</a>
+</g>
+</g>
+<!-- 0&#45;&gt;1 -->
+<g id="edge2" class="edge" data-name="0-&gt;1">
+
+<g id="a_edge2"><a xlink:href="t1" xlink:title="BUTTON_B / b'LIGHT IS ON'">
+<path fill="none" stroke="black" d="M112.08,-84.53C104.16,-78.07 96.14,-69.71 91.88,-60 87.58,-50.22 93.82,-41.6 102.74,-34.83"/>
+<polygon fill="black" stroke="black" points="104.47,-37.88 110.98,-29.51 100.68,-31.99 104.47,-37.88"/>
+</a>
+</g>
+<g id="a_edge2-label"><a xlink:href="t1" xlink:title="BUTTON_B / b'LIGHT IS ON'">
+<text text-anchor="middle" x="124.07" y="-55.5" font-family="Times,serif" font-size="5.00">BUTTON_B / b'LIGHT IS ON'</text>
+</a>
+</g>
+</g>
+<!-- 1&#45;&gt;0 -->
+<g id="edge3" class="edge" data-name="1-&gt;0">
+
+<g id="a_edge3"><a xlink:href="t2" xlink:title="BUTTON_A / b'LIGHT IS OFF'">
+<path fill="none" stroke="black" d="M146.12,-34.54C149.83,-40.34 153.45,-47.17 155.34,-54 156.75,-59.09 156.28,-64.32 154.75,-69.34"/>
+<polygon fill="black" stroke="black" points="151.57,-67.89 150.65,-78.45 157.95,-70.76 151.57,-67.89"/>
+</a>
+</g>
+<g id="a_edge3-label"><a xlink:href="t2" xlink:title="BUTTON_A / b'LIGHT IS OFF'">
+<text text-anchor="middle" x="188.19" y="-55.5" font-family="Times,serif" font-size="5.00">BUTTON_A / b'LIGHT IS OFF'</text>
+</a>
+</g>
+</g>
+<!-- 1&#45;&gt;0 -->
+<g id="edge4" class="edge" data-name="1-&gt;0">
+
+<g id="a_edge4"><a xlink:href="t3" xlink:title="BUTTON_B / b'LIGHT IS OFF'">
+<path fill="none" stroke="black" d="M161.26,-21.34C182.58,-24.76 211.06,-33.21 225.34,-54 240.18,-75.61 207.06,-87.3 176.7,-93.3"/>
+<polygon fill="black" stroke="black" points="176.45,-89.79 167.22,-95 177.68,-96.68 176.45,-89.79"/>
+</a>
+</g>
+<g id="a_edge4-label"><a xlink:href="t3" xlink:title="BUTTON_B / b'LIGHT IS OFF'">
+<text text-anchor="middle" x="260.05" y="-55.5" font-family="Times,serif" font-size="5.00">BUTTON_B / b'LIGHT IS OFF'</text>
+</a>
+</g>
+</g>
+</g>
+</svg>

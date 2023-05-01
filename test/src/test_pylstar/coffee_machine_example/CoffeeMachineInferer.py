@@ -19,7 +19,7 @@ class CoffeeMachineKnowledgeBase(NetworkActiveKnowledgeBase):
     def start(self):
         print("Starting coffeemachine target")
         coffee_path = self.__executable
-        self.__sp = subprocess.Popen("/usr/bin/python {}".format(coffee_path), shell=True)
+        self.__sp = subprocess.Popen("/usr/bin/python3 {}".format(coffee_path), shell=True)
         time.sleep(5)
         
     def stop(self):
@@ -52,8 +52,8 @@ def main():
         "REFILL_WATER",
         "REFILL_COFFEE",
         "PRESS_BUTTON_A",
-        "PRESS_BUTTON_B",
-        "PRESS_BUTTON_C"    
+        # "PRESS_BUTTON_B",
+        # "PRESS_BUTTON_C"    
     ]
     coffeeBase = CoffeeMachineKnowledgeBase(executable)
     try:

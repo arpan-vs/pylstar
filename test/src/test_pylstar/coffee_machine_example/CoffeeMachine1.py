@@ -3,7 +3,7 @@
 
 import socket
 import sys
-from thread import *
+from _thread import *
 
 
 class WaterIsFullException(Exception):
@@ -133,11 +133,11 @@ def clientthread(conn):
     #Sending message to connected client
     while True:
 
-        order = conn.recv(1024)
+        order = conn.recv(1024).decode()
         if not order:
             break
         response = coffee_machine.execute_command(order)+"\n"
-        conn.sendall(response)
+        conn.sendall(response.encode())
         
 def main():
 

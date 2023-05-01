@@ -1,0 +1,8 @@
+digraph "Automata" {
+"0" [shape=doubleoctagon, style=filled, fillcolor=white, URL="0"];
+"1" [shape=ellipse, style=filled, fillcolor=white, URL="1"];
+"0" -> "1" [fontsize=5, label="BUTTON_A / b'LIGHT IS ON'", URL="t0"];
+"0" -> "1" [fontsize=5, label="BUTTON_B / b'LIGHT IS ON'", URL="t1"];
+"1" -> "0" [fontsize=5, label="BUTTON_A / b'LIGHT IS OFF'", URL="t2"];
+"1" -> "0" [fontsize=5, label="BUTTON_B / b'LIGHT IS OFF'", URL="t3"];
+}

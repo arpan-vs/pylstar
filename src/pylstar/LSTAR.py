@@ -275,13 +275,11 @@ class LSTAR(object):
 
         f_hypothesis_is_valid = False
         i_round = 1
-        
         while not f_hypothesis_is_valid and not self.__f_stop:
         
             hypothesis = self.build_hypothesis(i_round)
-
             self.__serialize_hypothesis(i_round, hypothesis)
-
+            print(hypothesis.build_dot_code())
             counterexample = self.eqtests.find_counterexample(hypothesis)
             if counterexample is not None:
                 self._logger.info("Counterexample '{}' found.".format(counterexample))
@@ -292,7 +290,10 @@ class LSTAR(object):
             i_round += 1
 
         self.__serialize_observation_table(i_round)
-
+        # for x in list_hypo:
+        #     print("list_hypo : ",x.build_dot_code())
+        #     print()
+        # print("list_hypo : ",list_hypo)
         self._logger.info("Automata successfully computed")
         return hypothesis
 

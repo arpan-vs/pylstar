@@ -1,0 +1,18 @@
+digraph "Automata" {
+"0" [shape=doubleoctagon, style=filled, fillcolor=white, URL="0"];
+"3" [shape=ellipse, style=filled, fillcolor=white, URL="3"];
+"2" [shape=ellipse, style=filled, fillcolor=white, URL="2"];
+"1" [shape=ellipse, style=filled, fillcolor=white, URL="1"];
+"0" -> "1" [fontsize=5, label="REFILL_WATER / b'DONE'", URL="t0"];
+"0" -> "3" [fontsize=5, label="REFILL_COFFEE / b'DONE'", URL="t1"];
+"0" -> "0" [fontsize=5, label="PRESS_BUTTON_A / b'ERROR'", URL="t2"];
+"3" -> "2" [fontsize=5, label="REFILL_WATER / b'DONE'", URL="t9"];
+"3" -> "3" [fontsize=5, label="REFILL_COFFEE / b'ERROR'", URL="t10"];
+"3" -> "3" [fontsize=5, label="PRESS_BUTTON_A / b'ERROR'", URL="t11"];
+"2" -> "2" [fontsize=5, label="REFILL_WATER / b'ERROR'", URL="t6"];
+"2" -> "2" [fontsize=5, label="REFILL_COFFEE / b'ERROR'", URL="t7"];
+"2" -> "2" [fontsize=5, label="PRESS_BUTTON_A / b'ERROR'", URL="t8"];
+"1" -> "1" [fontsize=5, label="REFILL_WATER / b'ERROR'", URL="t3"];
+"1" -> "2" [fontsize=5, label="REFILL_COFFEE / b'DONE'", URL="t4"];
+"1" -> "1" [fontsize=5, label="PRESS_BUTTON_A / b'ERROR'", URL="t5"];
+}

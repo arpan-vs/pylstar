@@ -80,6 +80,6 @@ class NetworkActiveKnowledgeBase(ActiveKnowledgeBase):
 
 
     def _send_and_receive(self, s, data):
-        s.sendall(data)
+        s.sendall(data.encode())
         time.sleep(0.1)
         return s.recv(1024).strip()
