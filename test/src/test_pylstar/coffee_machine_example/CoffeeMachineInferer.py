@@ -16,18 +16,18 @@ class CoffeeMachineKnowledgeBase(NetworkActiveKnowledgeBase):
         self.__sp = None
         self.__executable = executable
 
-    def start(self):
-        print("Starting coffeemachine target")
-        coffee_path = self.__executable
-        self.__sp = subprocess.Popen("/usr/bin/python3 {}".format(coffee_path), shell=True)
-        time.sleep(5)
+    # def start(self):
+    #     print("Starting coffeemachine target")
+    #     coffee_path = self.__executable
+    #     self.__sp = subprocess.Popen("/usr/bin/python3 {}".format(coffee_path), shell=True)
+    #     time.sleep(5)
         
-    def stop(self):
-        print("Stoping coffeemachine")
-        if self.__sp is not None:
-            print("Coffee machine process is forced to stop")
-            self.__sp.terminate()            
-            self.__sp.kill()
+    # def stop(self):
+    #     print("Stoping coffeemachine")
+    #     if self.__sp is not None:
+    #         print("Coffee machine process is forced to stop")
+    #         self.__sp.terminate()            
+    #         self.__sp.kill()
 
 
 def main():
@@ -52,16 +52,17 @@ def main():
         "REFILL_WATER",
         "REFILL_COFFEE",
         "PRESS_BUTTON_A",
-        # "PRESS_BUTTON_B",
-        # "PRESS_BUTTON_C"    
+        "PRESS_BUTTON_B",
+        "PRESS_BUTTON_C"    
     ]
     coffeeBase = CoffeeMachineKnowledgeBase(executable)
     try:
-        coffeeBase.start()
-        lstar = LSTAR(input_vocabulary, coffeeBase, max_states = 10)
+        # coffeeBase.start()
+        lstar = LSTAR(input_vocabulary, coffeeBase, max_states = 4)
         coffee_state_machine = lstar.learn()
     finally:
-        coffeeBase.stop()
+        pass
+        # coffeeBase.stop()
         
     dot_code = coffee_state_machine.build_dot_code()
 
