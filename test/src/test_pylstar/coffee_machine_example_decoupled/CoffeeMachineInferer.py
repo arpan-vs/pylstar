@@ -33,12 +33,12 @@ def main():
         
     dot_code = coffee_state_machine.build_dot_code()
 
-    output_file = "coffee_machine_{}.dot".format(id_coffee_machine)
+    output_file = "coffee_machine.dot"
 
     with open(output_file, "w") as fd:
         fd.write(dot_code)
 
-    print("==> Coffee machine {} Automata dumped in {}".format(id_coffee_machine, output_file))
+    print("==> Coffee machine Automata dumped in {}".format(output_file))
     print("Knowledge base stats: {}".format(coffeeBase.stats))
 
 
