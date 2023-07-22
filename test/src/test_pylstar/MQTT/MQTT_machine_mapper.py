@@ -19,13 +19,13 @@ class MQTTMachine(object):
         self.mqtt.topics.clear()
 
     def execute_command(self, command):
-        if command == 'connect':
+        if int(command) == 100:
                 return self.mqtt.connect()
-        elif command == 'disconnect':
+        elif int(command) == 200:
             return self.mqtt.disconnect()
-        elif command == 'publish':
+        elif int(command) == 300:
             return self.mqtt.publish(topic='test')
-        elif command == 'subscribe':
+        elif int(command) == 400:
             return self.mqtt.subscribe(topic='test')
         else:
             return self.mqtt.unsubscribe(topic='test')
@@ -39,7 +39,7 @@ def clientthread(conn):
     while True:
 
         order = conn.recv(1024).decode()
-        print(order)
+        # print(order)
         if not order:
             break
         response = mqtt_machine.execute_command(order)+"\n"

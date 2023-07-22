@@ -1,0 +1,20 @@
+digraph "Automata" {
+"0" [shape=doubleoctagon, style=filled, fillcolor=white, URL="0"];
+"1" [shape=ellipse, style=filled, fillcolor=white, URL="1"];
+"2" [shape=ellipse, style=filled, fillcolor=white, URL="2"];
+"0" -> "1" [fontsize=5, label="connect / b'CONNACK'", URL="t0"];
+"0" -> "0" [fontsize=5, label="disconnect / b'CONCLOSED'", URL="t1"];
+"0" -> "0" [fontsize=5, label="publish / b'CONCLOSED'", URL="t2"];
+"0" -> "0" [fontsize=5, label="subscribe / b'CONCLOSED'", URL="t3"];
+"0" -> "0" [fontsize=5, label="unsubscribe / b'CONCLOSED'", URL="t4"];
+"1" -> "0" [fontsize=5, label="connect / b'CONCLOSED'", URL="t5"];
+"1" -> "0" [fontsize=5, label="disconnect / b'CONCLOSED'", URL="t6"];
+"1" -> "1" [fontsize=5, label="publish / b'PUBACK'", URL="t7"];
+"1" -> "2" [fontsize=5, label="subscribe / b'SUBACK'", URL="t8"];
+"1" -> "1" [fontsize=5, label="unsubscribe / b'UNSUBACK'", URL="t9"];
+"2" -> "0" [fontsize=5, label="connect / b'CONCLOSED'", URL="t10"];
+"2" -> "0" [fontsize=5, label="disconnect / b'CONCLOSED'", URL="t11"];
+"2" -> "2" [fontsize=5, label="publish / b'PUBACK_PUBACK'", URL="t12"];
+"2" -> "2" [fontsize=5, label="subscribe / b'SUBACK'", URL="t13"];
+"2" -> "1" [fontsize=5, label="unsubscribe / b'UNSUBACK'", URL="t14"];
+}
