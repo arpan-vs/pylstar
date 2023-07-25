@@ -7,7 +7,6 @@ import time
 import socket
 import json
 
-from Mqtt import MockMqttExample
 
 sys.path.append("../../../../src")
 from pylstar.tools.Decorators import PylstarLogger
@@ -15,7 +14,6 @@ from pylstar.LSTAR import LSTAR
 from pylstar.ActiveKnowledgeBase import ActiveKnowledgeBase
 from pylstar.Letter import Letter, EmptyLetter
 from pylstar.Word import Word
-from Mapper import FunctionDecorator
 
 def MQTTMapper(alphabet):
     
@@ -41,10 +39,10 @@ def MQTTMapper(alphabet):
     return json.dumps(map1)
             
 
-class MQTTMachineKnowledgeBase(ActiveKnowledgeBase):
+class EchoServerKnowledgeBase(ActiveKnowledgeBase):
 
     def __init__(self, target_host, target_port, timeout=5):
-        super(MQTTMachineKnowledgeBase, self).__init__()
+        super(EchoServerKnowledgeBase, self).__init__()
         self.target_host = target_host
         self.target_port = target_port
         self.timeout = timeout
@@ -77,7 +75,8 @@ class MQTTMachineKnowledgeBase(ActiveKnowledgeBase):
         output_letter = EmptyLetter()
         try:
             to_send = ''.join([symbol for symbol in letter.symbols])
-            output_letter = Letter(self._send_and_receive(s, MQTTMapper(to_send)))
+            output_letter = Letter(self._send_and_receive(s, to_send))
+            print(output_letter)
         except Exception as e:
             self._logger.error(e)
 
@@ -85,7 +84,7 @@ class MQTTMachineKnowledgeBase(ActiveKnowledgeBase):
 
 
     def _send_and_receive(self, s, data):
-        print(data)
+        # print(data)
         s.sendall(data.encode())
         time.sleep(0.1)
         return s.recv(1024).strip()
@@ -93,7 +92,7 @@ class MQTTMachineKnowledgeBase(ActiveKnowledgeBase):
 
 def main():
 
-    input_vocabulary1 = [
+    input_vocabulary = [
         'connect',
         'disconnect',
         'publish',
@@ -101,32 +100,23 @@ def main():
         'unsubscribe'    
     ]
 
-    mqtt = MockMqttExample
-    input_vocabulary2 = [
-        str(FunctionDecorator(mqtt.connect)),
-        str(FunctionDecorator(mqtt.disconnect)),
-        str(FunctionDecorator(mqtt.subscribe, 'topic')),
-        str(FunctionDecorator(mqtt.unsubscribe, 'topic')),
-        str(FunctionDecorator(mqtt.publish, 'topic'))
-    ]
 
-
-    mqttBase = MQTTMachineKnowledgeBase("127.0.0.1", 3000)
+    EchoServerBase = EchoServerKnowledgeBase("127.0.0.1", 3000)
     try:
-        lstar = LSTAR(input_vocabulary1, mqttBase, max_states = 2)
-        mqtt_state_machine = lstar.learn()
+        lstar = LSTAR(input_vocabulary, EchoServerBase, max_states = 2)
+        EchoServerBase_state_machine = lstar.learn()
     except:
         print("Some Error Occured")
         
-    dot_code = mqtt_state_machine.build_dot_code()
+    dot_code = EchoServerBase_state_machine.build_dot_code()
 
-    output_file = "mqtt_machine_mapper.dot"
+    output_file = "echoserver.dot"
 
     with open(output_file, "w") as fd:
         fd.write(dot_code)
 
     print("==> MQTT machine Automata dumped in {}".format(output_file))
-    print("Knowledge base stats: {}".format(mqttBase.stats))
+    print("Knowledge base stats: {}".format(EchoServerBase.stats))
 
 
 if __name__ == "__main__":

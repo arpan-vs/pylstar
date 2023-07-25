@@ -1,0 +1,8 @@
+digraph "Automata" {
+"0" [shape=doubleoctagon, style=filled, fillcolor=white, URL="0"];
+"0" -> "0" [fontsize=5, label="connect / b'CONNECT'", URL="t0"];
+"0" -> "0" [fontsize=5, label="disconnect / b'DISCONNECT'", URL="t1"];
+"0" -> "0" [fontsize=5, label="publish / b'PUBLISH'", URL="t2"];
+"0" -> "0" [fontsize=5, label="subscribe / b'SUBSCRIBE'", URL="t3"];
+"0" -> "0" [fontsize=5, label="unsubscribe / b'UNSUBSCRIBE'", URL="t4"];
+}
