@@ -20,8 +20,12 @@ def ftpINMapper(alphabet):
     match alphabet:
         case 'user':
             buf.append("admin")
+        case 'wrong_user':
+            buf.append("admn")
         case 'password':
             buf.append("password")
+        case 'wrong_password':
+            buf.append("pass")
         case 'quit':
             buf.append("QUIT")
         case 'list':
@@ -107,6 +111,8 @@ def main():
     input_vocabulary = [
         'user',
         'password',
+        'wrong_user',
+        'wrong_password',
         'quit',
         'pwd',
         'help',
