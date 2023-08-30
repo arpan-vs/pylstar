@@ -221,16 +221,17 @@ while True:
 
     # authentification  --------------------------------------------
     try:
-        client.send("Username: ".encode("utf8"))
+        # client.send("Username: ".encode("utf8"))
         received_data = client.recv(BUFFER_SIZE)
         username = received_data.decode("utf8").strip('\n')
 
-        client.send("Password: ".encode("utf8"))
-        received_data = client.recv(BUFFER_SIZE)
-        bin_password = received_data.decode("utf8").strip('\n').encode("utf8")
+        # client.send("Password: ".encode("utf8"))
 
         if username in users.keys():
             # compare hash
+            client.send("Enter Password".encode("utf8"))
+            received_data = client.recv(BUFFER_SIZE)
+            bin_password = received_data.decode("utf8").strip('\n').encode("utf8")
             hash = users[username]
             if bcrypt.hashpw(bin_password, hash) == hash:
                 client.send(f"Welcome {username} !\n".encode("utf8"))
@@ -255,7 +256,7 @@ while True:
     while True:
         try:
             # will generate an error if not authentified (socket closed)
-            client.send(f"\n{PWD()}/$ ".encode("utf8"))
+            # client.send(f"\n{PWD()}/$ ".encode("utf8"))
             bin_message = client.recv(BUFFER_SIZE)
             message = bin_message.decode("utf8").strip('\n')
             print(f"Command received : {message}")

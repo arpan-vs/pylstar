@@ -48,6 +48,7 @@ def ftpINMapper(alphabet):
 
 
 def ftpOUTMapper(data):
+    map1 = {}
     return
     # return concrete_out[data]
 
@@ -98,9 +99,9 @@ class ftpMachineKnowledgeBase(ActiveKnowledgeBase):
 
     def _send_and_receive(self, s, data):
         print('input:',data)
-        s.sendall(data.encode())
+        s.sendall(data.encode("utf8"))
         time.sleep(0.1)
-        outdata = s.recv(1024).decode().strip()
+        outdata = s.recv(1024).decode("utf8").strip()
         print('output:',outdata)
         # outputlist.add(outdata)
         return outdata
@@ -111,15 +112,12 @@ def main():
     input_vocabulary = [
         'user',
         'password',
-        'wrong_user',
-        'wrong_password',
+        # 'wrong_user',
+        # 'wrong_password',
         'quit',
         'pwd',
         'help',
-        # 'list',
-        # 'download',
-        # 'upload',
-        # 'passive_mode'  
+        # 'list'
     ]
 
 
